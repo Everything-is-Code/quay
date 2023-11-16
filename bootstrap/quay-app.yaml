@@ -1,1 +1,26 @@
-
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: quay
+  namespace: openshift-gitops
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: in-cluster
+  template:
+    metadata:
+      name: quay-{{cluster}}
+    spec:
+      project: quay
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: https://github.com/Everything-is-Code/quay.git
+        targetRevision: main
+        path: resources/
+      destination:
+        server: https://kubernetes.default.svc
