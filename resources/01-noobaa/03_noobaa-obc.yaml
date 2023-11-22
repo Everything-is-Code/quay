@@ -4,6 +4,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "6"
   name: quay-obc
+  namespace: openshift-storage
 spec:
   generateBucketName: quay-obc
   storageClassName: noobaa-default-bucket-class
