@@ -3,5 +3,5 @@ kind: Namespace
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "8"
-  name: quay-registry
+  name: registry
 spec: {}
