@@ -1,6 +1,8 @@
 kind: Secret
 apiVersion: v1
 metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
   name: quay-config-bundle
   namespace: quay-registry
 data:
