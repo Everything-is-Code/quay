@@ -3,8 +3,8 @@ kind: QuayRegistry
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "3"
-  name: quay-registry
-  namespace: quay-registry
+  name: quay
+  namespace: registry
 spec:
   components:
     - managed: true
