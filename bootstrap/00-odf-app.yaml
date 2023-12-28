@@ -29,11 +29,7 @@ spec:
       elements:
       - name: odf
         cluster: in-cluster
-        path: resources/00-odf
-        revision: odf-only
-      - name: noobaa 
-        cluster: in-cluster
-        path: resources/01-noobaa
+        path: resources
         revision: odf-only
   template:
     metadata:
