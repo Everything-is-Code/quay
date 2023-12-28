@@ -27,15 +27,17 @@ spec:
   generators:
   - list:
       elements:
-      - cluster: in-cluster
+      - name: odf
+        cluster: in-cluster
         path: resources/00-odf
         revision: odf-only
-      - cluster: in-cluster
+      - name: noobaa 
+        cluster: in-cluster
         path: resources/01-noobaa
         revision: odf-only
   template:
     metadata:
-      name: odf-{{cluster}}
+      name: "{{name}}-{{cluster}}"
     spec:
       project: odf-only
       syncPolicy:
