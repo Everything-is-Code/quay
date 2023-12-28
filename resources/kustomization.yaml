@@ -5,3 +5,4 @@ commonAnnotations:
 resources:
 - 01-noobaa
 - 00-odf
+- 02-local-storage
