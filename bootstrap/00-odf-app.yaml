@@ -23,6 +23,8 @@ metadata:
   namespace: openshift-gitops
   annotations:
     argocd.argoproj.io/sync-wave: "1"  
+  finalizers: 
+  - kubernetes
 spec:
   generators:
   - list:
