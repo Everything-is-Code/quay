@@ -3,5 +3,4 @@ kind: Kustomization
 commonAnnotations:
   argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
-- 00-quay-app-project.yaml
-- 01-quay-app.yaml
+- 00-odf-app.yaml

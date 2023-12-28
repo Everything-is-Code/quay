@@ -1,0 +1,50 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  name: odf
+  namespace: openshift-gitops
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
+---
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: odf
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"  
+spec:
+  generators:
+  - list:
+      elements:
+      - cluster: in-cluster
+        path: resources/00-odf
+        revision: odf-only
+      - cluster: in-cluster
+        path: resources/01-noobaa
+        revision: odf-only
+  template:
+    metadata:
+      name: odf-{{cluster}}
+    spec:
+      project: odf-only
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+      source:
+        repoURL: https://github.com/Everything-is-Code/quay.git
+        targetRevision: {{ revision }}
+        path: {{ path }}
+      destination:
+        server: https://kubernetes.default.svc
