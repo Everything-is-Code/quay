@@ -3,8 +3,8 @@ kind: ObjectBucketClaim
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "6"
-  name: quay-obc
+  name: generic-obc
   namespace: openshift-storage
 spec:
-  generateBucketName: quay-obc
+  generateBucketName: generic-obc
   storageClassName: noobaa-default-bucket-class
