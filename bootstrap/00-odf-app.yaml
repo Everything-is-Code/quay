@@ -4,7 +4,7 @@ kind: AppProject
 metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
-  name: odf
+  name: odf-only
   namespace: openshift-gitops
 spec:
   clusterResourceWhitelist:
