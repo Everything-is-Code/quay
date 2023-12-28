@@ -27,7 +27,7 @@ spec:
   generators:
   - list:
       elements:
-      - name: odf
+      - name: odf-and-noobaa
         cluster: in-cluster
         path: resources
         revision: odf-only
