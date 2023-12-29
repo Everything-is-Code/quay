@@ -1,0 +1,26 @@
+apiVersion: local.storage.openshift.io/v1alpha1
+kind: LocalVolumeSet
+metadata:
+  name: localvolumeset
+  namespace: openshift-local-storage
+spec:
+  deviceInclusionSpec:
+    deviceMechanicalProperties:
+      - Rotational
+      - NonRotational
+    deviceTypes:
+      - disk
+    maxSize: 100G
+    minSize: 10G
+  nodeSelector:
+    nodeSelectorTerms:
+      - matchExpressions:
+          - values:
+              - worker-0
+              - worker-1
+            key: kubernetes.io/hostname
+            operator: In
+  maxDeviceCount: 10
+  storageClassName: odf-storageclass
+  volumeBindingMode: Immediate
+  volumeMode: Block
