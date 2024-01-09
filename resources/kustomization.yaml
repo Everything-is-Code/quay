@@ -3,6 +3,5 @@ kind: Kustomization
 commonAnnotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
-- 01-noobaa
-- 00-odf
-- 02-quay
+- 03-quay-operator
+- 04-quay-registry

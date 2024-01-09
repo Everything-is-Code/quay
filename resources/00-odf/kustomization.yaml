@@ -1,8 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-commonAnnotations:
-    argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
-resources:
-- 01_openshift-local-storage-namespace.yaml
-- 02_openshift-local-storage-og.yaml
-- 03_local-storage-operator-subscription.yaml
