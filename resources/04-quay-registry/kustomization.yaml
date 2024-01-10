@@ -3,6 +3,7 @@ kind: Kustomization
 commonAnnotations:
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 resources:
+- 00_00_quay-obc.yaml
 - 01_quay-namespace.yaml
 - 02_quay-config-bundle.yaml
 - 03_quay-registry.yaml
